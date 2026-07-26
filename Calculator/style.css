@@ -1,0 +1,297 @@
+/* ============================================
+   style.css — Calculator
+   Clean & Aesthetic · Fully Responsive
+   ============================================ */
+
+/* Tokens  */
+:root {
+  /* Background & surface */
+  --bg:           #f0ede8;
+  --card:         #faf9f7;
+  --card-border:  #e4e0d9;
+
+  /* Text */
+  --text-1:       #1c1917;
+  --text-2:       #78716c;
+  --text-3:       #c4bdb5;
+
+  /* Buttons — digit */
+  --btn-bg:       #f5f2ee;
+  --btn-border:   #e8e3dc;
+  --btn-hover:    #eceae5;
+  --btn-text:     #1c1917;
+
+  /* Buttons — operator */
+  --op-bg:        #eef3ff;
+  --op-border:    #d5e0ff;
+  --op-hover:     #e4ecff;
+  --op-text:      #3b5bdb;
+
+  /* Buttons — equals */
+  --eq-bg:        #1c1917;
+  --eq-hover:     #2d2926;
+  --eq-text:      #faf9f7;
+
+  /* Buttons — clear */
+  --clear-bg:     #fff1f0;
+  --clear-border: #fdd8d5;
+  --clear-hover:  #fee2e0;
+  --clear-text:   #c0392b;
+
+  /* Util (backspace) */
+  --util-bg:      var(--btn-bg);
+  --util-text:    var(--text-2);
+
+  /* Display highlight */
+  --result-color: #3b5bdb;
+  --error-color:  #c0392b;
+
+  /* Spacing & shape */
+  --card-radius:  24px;
+  --btn-radius:   14px;
+  --gap:          10px;
+  --pad:          20px;
+
+  /* Font */
+  --font:         'DM Sans', system-ui, sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* Shadow */
+  --card-shadow:  0 8px 40px rgba(28, 25, 23, 0.10),
+                  0 1px 4px  rgba(28, 25, 23, 0.06);
+  --btn-shadow:   0 1px 3px  rgba(28, 25, 23, 0.08);
+}
+
+/* Reset  */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page  */
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  font-family: var(--font);
+  padding: 16px;
+}
+
+/* Subtle dot texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, #c4bdb5 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/*Card */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 360px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+/* Display */
+.display {
+  padding: 28px var(--pad) 18px;
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--card-border);
+  background: var(--card);
+}
+
+.display__expr {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--text-3);
+  min-height: 18px;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.display__value {
+  font-family: var(--font-mono);
+  font-size: 44px;
+  font-weight: 300;
+  color: var(--text-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  transition: color 0.18s, font-size 0.15s;
+  line-height: 1.1;
+}
+
+/* State modifiers */
+.display__value.is-result { color: var(--result-color); }
+.display__value.is-error  { color: var(--error-color); font-size: 16px; }
+.display__value.is-md     { font-size: 34px; }
+.display__value.is-sm     { font-size: 24px; }
+
+/*  Button Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap);
+  padding: var(--pad);
+}
+
+/* Base Button  */
+.btn {
+  height: 62px;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--btn-radius);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--btn-shadow);
+  transition:
+    background  0.12s,
+    transform  0.08s,
+    box-shadow 0.12s,
+    border-color 0.12s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+}
+
+.btn:active {
+  transform: scale(0.91);
+  box-shadow: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--op-text);
+  outline-offset: 2px;
+}
+
+/* Operator */
+.btn--op {
+  background: var(--op-bg);
+  border-color: var(--op-border);
+  color: var(--op-text);
+  font-size: 20px;
+}
+
+.btn--op:hover {
+  background: var(--op-hover);
+}
+
+/* Equals */
+.btn--eq {
+  grid-column: span 2;
+  background: var(--eq-bg);
+  border-color: var(--eq-bg);
+  color: var(--eq-text);
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.btn--eq:hover {
+  background: var(--eq-hover);
+  border-color: var(--eq-hover);
+}
+
+/* Clear */
+.btn--clear {
+  background: var(--clear-bg);
+  border-color: var(--clear-border);
+  color: var(--clear-text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.btn--clear:hover {
+  background: var(--clear-hover);
+}
+/*  Util (backspace) */
+
+.btn--util {
+  background: var(--util-bg);
+  border-color: var(--btn-border);
+  color: var(--util-text);
+  font-size: 17px;
+}
+
+/*  Zero (wide) */
+.btn--zero {
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: 22px;
+}
+
+/* ============================================
+  RESPONSIVE
+   ============================================ */
+
+/* Very small phones */
+@media (max-width: 340px) {
+  .btn { height: 52px; font-size: 16px; }
+  .display__value { font-size: 36px; }
+  .grid { gap: 7px; padding: 14px; }
+}
+
+/* Normal phones */
+@media (min-width: 341px) and (max-width: 480px) {
+  .wrapper { max-width: 100%; }
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .wrapper { max-width: 400px; }
+  .btn { height: 68px; font-size: 20px; }
+  .display__value { font-size: 52px; }
+}
+
+/* Desktop */
+@media (min-width: 769px) {
+  .wrapper { max-width: 360px; }
+}
+
+/* Landscape mobile */
+@media (max-height: 480px) and (orientation: landscape) {
+  .display { min-height: 72px; padding: 14px var(--pad) 12px; }
+  .display__value { font-size: 30px; }
+  .btn { height: 50px; font-size: 16px; }
+  .grid { gap: 7px; padding: 12px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
