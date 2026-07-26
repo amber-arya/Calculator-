@@ -1,37 +1,46 @@
 # 🧮 Calculator
 
-A clean, aesthetic calculator built with HTML, CSS, and JavaScript — based on Python arithmetic logic.
+> A minimal, aesthetic calculator — coded from scratch with Python logic at its core.
 
-🔗 **Live Demo → [calculator-lovat-zeta-97.vercel.app](https://calczen.vercel.app/)**
+🔗 **Live Demo → [calczen.vercel.app](https://calczen.vercel.app)**
+
+---
+
+## 💡 About This Project
+
+I started this project by writing the core arithmetic logic in **Python** — completely on my own, from scratch. Once the logic was solid, I converted it into a web app using **HTML5, CSS3, and Vanilla JavaScript**, and used **AI assistance for the web styling** to get a clean, aesthetic UI.
+
+It's a simple project, but it taught me how the same logic can live in a terminal script *and* a deployed web app.
 
 ---
 
 ## ✨ Features
 
-- ➕ Add, ➖ Subtract, ✖️ Multiply, ➗ Divide, % Modulo
-- 🔗 Chained calculations (result → next operation)
+- ➕ ➖ ✖️ ➗ Basic arithmetic Add, Subtract, Multiply, Divide
+- **%** Modulo support
+- 🔗 Chained calculations
+- 🚫 Divide by zero — handled gracefully
 - ⌨️ Full keyboard support
-- 📱 Fully responsive — works on mobile, tablet & desktop
-- 🚫 Divide by zero error handling
-- 🎨 Clean aesthetic UI with warm color palette
+- 📱 Responsive — mobile, tablet & desktop ready
+- 🎨 Warm, minimal aesthetic design
 
 ---
 
 ## 📁 File Structure
 
 ```
-Calculator/
-├── index.html     → HTML structure
-├── style.css      → All styling & responsive design
-├── script.js      → Calculator logic (based on Python if/elif)
-└── main.py        → Original Python version of the logic
+CalcZen/
+├── index.html     → Page structure
+├── style.css      → All styling & responsive layout
+├── script.js      → Calculator logic (translated from Python)
+└── main.py        → Original Python script I wrote myself
 ```
 
 ---
 
-## 🐍 Python Origin
+## 🐍 Where It Started — Python
 
-This project started as a simple Python script:
+I wrote this logic myself in Python first:
 
 ```python
 a = int(input("Enter Your Number : "))
@@ -39,18 +48,18 @@ b = int(input("Enter Your Number : "))
 c = input("Enter Your Operator : ")
 
 if c == '+':
-    print(a + b)
+    print(a + b)       # add
 elif c == '-':
-    print(a - b)
+    print(a - b)       # subtract
 elif c == '*':
-    print(a * b)
+    print(a * b)       # multiply
 elif c == '/':
-    print(a / b)
+    print(a / b)       # divide
 else:
     print("Something went wrong....❌")
 ```
 
-The same `if/elif/else` logic is mirrored inside `script.js`.
+The exact same `if / elif / else` structure powers the `script.js` logic.
 
 ---
 
@@ -58,9 +67,9 @@ The same `if/elif/else` logic is mirrored inside `script.js`.
 
 | Key | Action |
 |-----|--------|
-| `0–9` | Enter digits |
-| `+ - * /` | Operators |
-| `Enter` or `=` | Calculate |
+| `0 – 9` | Enter digits |
+| `+ − * /` | Operators |
+| `Enter` or `=` | Calculate result |
 | `Backspace` | Delete last digit |
 | `Escape` | Clear all |
 
@@ -68,12 +77,7 @@ The same `if/elif/else` logic is mirrored inside `script.js`.
 
 ## 🚀 Run Locally
 
-```bash
-# Just open in browser — no install needed
-open index.html
-```
-
-Or clone it:
+No setup needed — just open in a browser:
 
 ```bash
 git clone https://github.com/amber-arya/Calculator.git
@@ -85,19 +89,30 @@ open index.html
 
 ## 🛠️ Built With
 
-- HTML5
-- CSS3 (Custom Properties, Grid, Flexbox)
-- Vanilla JavaScript
-- Python 3 (original logic)
-- Deployed on **Vercel**
+| Layer | Technology |
+|-------|-----------|
+| Structure | HTML5 |
+| Styling | CSS3 (Grid, Flexbox, Custom Properties) |
+| Logic | Vanilla JavaScript |
+| Origin | Python 3 |
+| Deployed | Vercel |
+
+---
+
+## 🤝 Honest Note
+
+- 🧠 **Python logic** — written by me, independently
+- 🎨 **Web styling** — done with AI assistance
+- 💻 **JS logic** — translated from my own Python code
 
 ---
 
 ## 👤 Author
 
 **Amber Arya**
-- GitHub: [@amber-arya](https://github.com/amber-arya)
+[![GitHub](https://img.shields.io/badge/GitHub-amber--arya-181717?style=flat&logo=github)](https://github.com/amber-arya)
+[![Live](https://img.shields.io/badge/Live-calczen.vercel.app-00C7B7?style=flat&logo=vercel)](https://calczen.vercel.app)
 
 ---
 
-> *Started as a Python terminal script. Turned into a deployed web app.*
+> *"Started as 10 lines of Python. Became a deployed web app."*
