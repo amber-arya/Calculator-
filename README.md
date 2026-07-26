@@ -1,6 +1,6 @@
 # 🧮 Calculator
 
-> A minimal, aesthetic calculator — coded from scratch with Python logic at its core.
+> A minimal, aesthetic calculator coded from scratch with Python logic at its core.
 
 🔗 **Live Demo → [calczen.vercel.app](https://calczen.vercel.app)**
 
