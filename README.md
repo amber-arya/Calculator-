@@ -2,7 +2,7 @@
 
 A clean, aesthetic calculator built with HTML, CSS, and JavaScript — based on Python arithmetic logic.
 
-🔗 **Live Demo → [calculator-lovat-zeta-97.vercel.app](https://calculator-lovat-zeta-97.vercel.app)**
+🔗 **Live Demo → [calculator-lovat-zeta-97.vercel.app](https://calczen.vercel.app/)**
 
 ---
 
